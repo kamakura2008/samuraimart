@@ -35,6 +35,22 @@ major_category_names.each do |major_category_name|
   end
 end
 
+product_ids = [*1..30]
+# product_names = [*"1".."30"]
+category_ids = [*1..18,*1..12]
+array_number = 0
+
+product_ids.each do
+  product_name = Faker::Music::RockBand.name
+  Product.create(
+    name: product_name,
+    description: product_name,
+    price: product_ids[array_number],
+    category_id: category_ids[array_number]
+  )
+  array_number += 1
+end
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
