@@ -15,8 +15,8 @@ class Dashboard::UsersController < ApplicationController
     
     def destroy
         user = User.find(params[:id])
-        deleted_flag = User.switch_flg(user.deleted_flag)
-        user.update(deleted_flag: deleted_flag)
+        deleted_flg = User.switch_flg(user.deleted_flg)
+        user.update(deleted_flg: deleted_flg)
         redirect_to dashboard_users_path
     end
 end
