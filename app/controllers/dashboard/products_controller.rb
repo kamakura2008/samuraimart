@@ -1,6 +1,6 @@
 class Dashboard::ProductsController < ApplicationController
 before_action :authenticate_admin!
-before_action :set_product, only: %w[show edit updata destroy]
+before_action :set_product, only: %w[show edit update destroy]
 layout "dashboard/dashboard"
 
 def index
@@ -37,7 +37,7 @@ def edit
 end
 
 def update
-    @product.updata(product_params)
+    @product.update(product_params)
     redirect_to dashboard_products_path
 end
 
@@ -52,6 +52,6 @@ private
     end
     
     def product_params
-        params.require(:product).permit(:name, :description, :price, :recommended_flag, :category_id)
+        params.require(:product).permit(:name, :description, :price, :recommended_flag, :carriage_flag, :category_id)
     end
 end
